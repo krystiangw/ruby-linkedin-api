@@ -75,7 +75,7 @@ end
 get "/company" do
 	begin
 		search_hash = Hash[params.map{ |k, v| [k.to_sym, v] }]
-  	search = linkedin_client.search(search_hash, :type => 'company')
+  	search = linkedin_client.search(search_hash, type ='company')
   	data = search.to_json
 	rescue LinkedIn::Errors::UnauthorizedError
 		redirect "/auth"
